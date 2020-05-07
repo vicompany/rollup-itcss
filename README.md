@@ -4,7 +4,7 @@ A recipe for bundling [ES Modules](https://developers.google.com/web/fundamental
 
 ## Usage
 
-- Clone this repo, download the zip file or use [`degit`](https://www.npmjs.com/package/degit): `npx degit vicompany/front-end-recipes`.
+- Clone this repo, download the zip file or use [`degit`](https://www.npmjs.com/package/degit): `npx degit vicompany/rollup-itcss`.
 - In the root of the project run `npm ci` or `npm install`.
 - The main entry points are:
     - [`src/scripts/main-module.mjs`](src/scripts/main-module.mjs): For modern browsers.
