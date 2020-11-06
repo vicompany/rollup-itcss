@@ -1,9 +1,9 @@
 # rollup.js & itcss - front-end recipe
 
 This recipe includes:
-- Bundling [ES modules](https://developers.google.com/web/fundamentals/primers/modules) with [rollup.js](https://rollupjs.org/)
-- JavaScript unit testing with [Jest](https://jestjs.io/)
-- A css setup using the [itcss](https://itcss.io/) architecture transformed by [PostCSS](https://postcss.org/)
+- Bundling [ES modules](https://developers.google.com/web/fundamentals/primers/modules) with [rollup.js](https://rollupjs.org/).
+- JavaScript unit testing with [Jest](https://jestjs.io/).
+- A css setup using the [itcss](https://itcss.io/) architecture, transformed with [PostCSS](https://postcss.org/).
 
 ## Usage
 
