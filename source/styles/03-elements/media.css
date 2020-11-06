@@ -1,0 +1,7 @@
+img {
+	max-width: 100%;
+	height: auto;
+
+	/* Bugfix: https://tinyurl.com/l2scwt4 */
+	vertical-align: bottom;
+}

@@ -1,0 +1,16 @@
+.button {
+	display: inline-block;
+
+	padding: var(--length-s) var(--length-m);
+
+	color: inherit;
+	font-family: inherit;
+	text-decoration: none;
+
+	background: var(--color-grey);
+	border: 0;
+}
+
+.button--primary {
+	background-color: var(--color-primary);
+}

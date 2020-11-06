@@ -1,0 +1,13 @@
+/* Credit: https://tinyurl.com/ohwmw5q */
+
+html {
+	box-sizing: border-box;
+}
+
+/* stylelint-disable selector-max-universal */
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+/* stylelint-enable selector-max-universal */

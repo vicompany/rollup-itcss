@@ -1,71 +1,41 @@
-import resolve from '@rollup/plugin-node-resolve';
+import path from 'path';
+
+import alias from '@rollup/plugin-alias';
+import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
-import babel from 'rollup-plugin-babel';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 
-const LEGACY_BUILD = 'legacy';
-const INPUT_DIR = 'src/scripts';
-const OUTPUT_DIR = 'dist/js';
+const INPUT_DIR = 'source/scripts';
+const OUTPUT_DIR = 'build/js';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-function basePlugins(build = '') {
-	const plugins = [
-		resolve(),
-		commonjs(),
-	];
-
-	if (isProduction) {
-		plugins.push(terser({
-			ecma: build === LEGACY_BUILD ? 5 : 8,
-		}));
-	}
-
-	return plugins;
-}
-
-const moduleConfig = {
-	input: `${INPUT_DIR}/main-module.mjs`,
+export default {
+	input: `${INPUT_DIR}/index.mjs`,
 
 	output: {
 		dir: OUTPUT_DIR,
-		format: 'esm',
 		entryFileNames: '[name].mjs',
 		chunkFileNames: '[name]-[hash].mjs',
-		dynamicImportFunction: '__import__',
+		format: 'esm',
 		sourcemap: true,
 	},
 
 	plugins: [
-		...basePlugins(),
+		alias({
+			entries: {
+				'@root': path.resolve(__dirname, INPUT_DIR),
+			},
+		}),
+		nodeResolve({
+			browser: true,
+		}),
+		commonjs(),
 		babel({
+			babelHelpers: 'bundled',
 			exclude: 'node_modules/**',
 		}),
+		...isProduction ? [terser()] : [],
 	],
 };
-
-const noModuleConfig = {
-	input: `${INPUT_DIR}/main-nomodule.mjs`,
-
-	output: {
-		dir: OUTPUT_DIR,
-		format: 'iife',
-		entryFileNames: '[name].js',
-		sourcemap: true,
-	},
-
-	plugins: [
-		...basePlugins(LEGACY_BUILD),
-		babel({
-			envName: LEGACY_BUILD,
-			exclude: 'node_modules/**',
-		}),
-	],
-
-	inlineDynamicImports: true,
-};
-
-export default [
-	moduleConfig,
-	noModuleConfig,
-];

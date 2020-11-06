@@ -1,0 +1,10 @@
+.container {
+	max-width: 60rem;
+
+	margin-right: auto;
+	margin-left: auto;
+
+	@media (--viewport-xl) {
+		max-width: 80rem;
+	}
+}

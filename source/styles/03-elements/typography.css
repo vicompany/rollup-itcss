@@ -1,0 +1,37 @@
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 var(--length-m);
+
+	font-weight: bold;
+}
+
+h1 {
+	font-size: var(--font-size-xxl);
+}
+
+h2 {
+	font-size: var(--font-size-xl);
+}
+
+h3 {
+	font-size: var(--font-size-l);
+}
+
+h4 {
+	font-size: var(--font-size-m);
+}
+
+h5 {
+	font-size: var(--font-size-s);
+}
+
+h6 {
+	font-size: var(--font-size-xs);
+}
+
+p {
+	margin: 0 0 var(--length-m);
+}
+
+a {
+	color: var(--color-primary);
+}

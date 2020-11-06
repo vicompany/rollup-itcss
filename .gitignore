@@ -1,4 +1,9 @@
-.vscode
-dist
 node_modules
+build
+
+debug.log
 npm-debug.log
+*.orig
+
+coverage
+test-report.xml

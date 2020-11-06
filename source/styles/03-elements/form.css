@@ -1,0 +1,11 @@
+form {
+	width: 100%;
+}
+
+input,
+select,
+textarea {
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+}
